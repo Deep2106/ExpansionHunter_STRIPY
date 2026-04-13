@@ -1,0 +1,323 @@
+================================================================
+  ExpansionHunter Pipeline — Pre-flight Checks
+================================================================
+  SLURM job ID    : 317896
+  Node            : <COMPUTE> 
+  Started         : Sat Apr 11 01:38:59 BST 2026
+
+  Pipeline dir    : /path/to/wes-expansionhunter-march2026
+  NXF_WORK        : /path/to/work2
+  NXF_SINGULARITY : /path/to/.singularity_cache
+  TMPDIR          : /local/scratch/317896
+  Output dir      : /path/to/TEST_DVG/results_v4/repeat_analysis
+================================================================
+[OK]    /path/to/TEST_DVG/results_v4/ped/master.ped
+[OK]    /path/toreference/hg38.fasta
+[OK]    /path/toreference/variant_catalog_v2_extended_offtarget_added_chr.json
+[OK]    /path/to/TEST_DVG/results_v4/bam/markdup
+[OK]    /path/to/wes-expansionhunter-march2026/main.nf
+[OK]    /path/toreference/stripy_locus_reference.json
+[OK]    /path/toresources/hpo_genes_to_phenotype.txt
+[OK]    /path/toresources/hpo_epilepsy_terms.txt
+[OK]    /path/toreference/repeat_regions.bed
+
+[INFO] Samples in PED     : 45
+[INFO] BAM suffix         : .md.bam
+[INFO] Analysis mode      : seeking
+[INFO] Concurrent jobs    : 25
+[INFO] Est. runtime       : ~4h
+
+[INFO] Regions BED        : /path/toreference/repeat_regions.bed
+[INFO] STRipy locus ref   : /path/toreference/stripy_locus_reference.json
+[INFO] HPO file           : /path/toresources/hpo_genes_to_phenotype.txt
+[INFO] HPO filter file    : /path/toresources/hpo_epilepsy_terms.txt
+[INFO] Cohort ID          : LH_WES
+
+[01:38:59] Launching Nextflow pipeline...
+
+N E X T F L O W  ~  version 25.10.2
+WARN: It appears you have never run this project before -- Option `-resume` is ignored
+Launching `/path/to/wes-expansionhunter-march2026/main.nf` [sad_boltzmann] DSL2 - revision: c18d691787
+
+╔══════════════════════════════════════════════════════════════╗
+║      EXPANSIONHUNTER REPEAT EXPANSION PIPELINE v1.1          ║
+╚══════════════════════════════════════════════════════════════╝
+
+INPUT FILES
+  PED file        : /path/to/TEST_DVG/results_v4/ped/master.ped
+  BAM directory   : /path/to/TEST_DVG/results_v4/bam/markdup
+  BAM suffix      : .md.bam
+
+REFERENCE
+  Genome          : GRCh38
+  FASTA           : /path/toreference/hg38.fasta
+
+EXPANSIONHUNTER
+  Variant catalog : /path/toreference/variant_catalog_v2_extended_offtarget_added_chr.json
+  Analysis mode   : seeking
+  Regions BED     : /path/toreference/repeat_regions.bed
+
+STRIPY POST-PROCESSING
+  Locus ref       : /path/toreference/stripy_locus_reference.json
+  HPO file        : /path/toresources/hpo_genes_to_phenotype.txt
+  HPO filter      : /path/toresources/hpo_epilepsy_terms.txt
+
+OUTPUT
+  Output dir      : /path/to/TEST_DVG/results_v4/repeat_analysis
+  Batch name      : expansionhunter
+
+RESOURCES
+  Max CPUs        : 28
+  Max memory      : 128 GB
+  Queue size      : 25
+──────────────────────────────────────────────────────────────
+
+[PED] Loaded 45 samples from /path/to/TEST_DVG/results_v4/ped/master.ped
+[PIPELINE] 45 / 45 samples matched
+[e3/197ced] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test1B_S5)
+[1e/1cac1d] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test1A_S4)
+[96/5d9eb9] Submitted process > STRIPY_POSTPROCESS:STRIPY_FETCH_LOCUS_REF (stripy_locus_ref)
+[f7/aa4754] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test1C_S2)
+[61/d78908] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test3A_S6)
+[72/f2db6a] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test3B_S4)
+[f8/0f370d] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test3C_S7)
+[b0/00a5d9] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test6B_S5)
+[aa/a96228] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test6A_S1)
+[8f/c93caa] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test6C_S2)
+[75/a9d60f] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test7A_S8)
+[94/1477a0] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test7C_S4)
+[93/03a422] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test7B_S7)
+[e1/e176bd] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test9B_S3)
+[31/234076] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test9A_S4)
+[97/6bd793] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test9C_S7)
+[85/46625a] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test11A_S1)
+[0d/ef2141] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test11B_S6)
+[b0/98dc89] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test11C_S5)
+[ad/56d24d] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test13A-RPT_S1)
+[09/d63157] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test13B_S8)
+[fe/2cb8fc] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test13C-RPT_S3)
+[b6/cae09d] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test14A-RPT_S5)
+[a4/67b20b] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test14C-RPT_S6)
+[82/814c69] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test14B-RPT_S7)
+[df/0bd53a] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test15B-RPT_S4)
+[3c/ff5196] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test15A_S8)
+[57/932652] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test30A_S6)
+[45/5c2c0f] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test15C-RPT_S2)
+[5e/99bb81] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test30C_S3)
+[2a/3e1dc2] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test30B_S4)
+[7d/0bb5b2] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test37B_S4)
+[3d/f367b9] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test37A_S3)
+[d1/c3199e] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test42A_S8)
+[d3/79764f] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test37C_S6)
+[14/99aa7f] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test42B_S8)
+[a8/cc6c30] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test42C_S3)
+[84/eb99a7] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test46B_S6)
+[e0/10ab4f] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test46A_S7)
+[39/a583e1] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test46C_S3)
+[5d/bed7dd] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test54A_S6)
+[bb/3e8a16] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test54B_S1)
+[d5/0c973c] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test54C_S7)
+[70/1ae910] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test58B_S1)
+[c8/f18b52] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test58A_S3)
+[6a/9fbf99] Submitted process > SAMTOOLS_EXTRACT_REGIONS (test58C_S2)
+[ff/1229bb] Submitted process > EXPANSIONHUNTER (test1A_S4)
+[d4/c4d500] Submitted process > EXPANSIONHUNTER (test3A_S6)
+[c6/226073] Submitted process > EXPANSIONHUNTER (test3B_S4)
+[65/5fa44a] Submitted process > EXPANSIONHUNTER (test1B_S5)
+[2d/73ea28] Submitted process > EXPANSIONHUNTER (test3C_S7)
+[49/396dc8] Submitted process > EXPANSIONHUNTER (test6B_S5)
+[55/b4607c] Submitted process > EXPANSIONHUNTER (test6C_S2)
+[21/21608c] Submitted process > EXPANSIONHUNTER (test6A_S1)
+[1d/2297de] Submitted process > EXPANSIONHUNTER (test7C_S4)
+[de/fed60c] Submitted process > EXPANSIONHUNTER (test7A_S8)
+[d0/6d1957] Submitted process > EXPANSIONHUNTER (test7B_S7)
+[13/ed2378] Submitted process > EXPANSIONHUNTER (test1C_S2)
+[92/79eca3] Submitted process > EXPANSIONHUNTER (test9B_S3)
+[96/d3cbd0] Submitted process > EXPANSIONHUNTER (test9A_S4)
+[c7/24381b] Submitted process > EXPANSIONHUNTER (test9C_S7)
+[66/3d6aa8] Submitted process > EXPANSIONHUNTER (test11B_S6)
+[d1/8e7ef3] Submitted process > EXPANSIONHUNTER (test11A_S1)
+[5f/502e96] Submitted process > EXPANSIONHUNTER (test11C_S5)
+[4d/a199c8] Submitted process > EXPANSIONHUNTER (test13A-RPT_S1)
+[f2/2c2f3b] Submitted process > EXPANSIONHUNTER (test13B_S8)
+[9b/d0032c] Submitted process > EXPANSIONHUNTER (test13C-RPT_S3)
+[50/ca0c66] Submitted process > EXPANSIONHUNTER (test14A-RPT_S5)
+[fa/6d1d68] Submitted process > EXPANSIONHUNTER (test14C-RPT_S6)
+[18/fb604d] Submitted process > EXPANSIONHUNTER (test15A_S8)
+[73/e87807] Submitted process > EXPANSIONHUNTER (test15B-RPT_S4)
+[9c/4fd493] Submitted process > EXPANSIONHUNTER (test14B-RPT_S7)
+[00/1f03bb] Submitted process > EXPANSIONHUNTER (test30A_S6)
+[9f/0716fb] Submitted process > EXPANSIONHUNTER (test15C-RPT_S2)
+[3b/bdf699] Submitted process > EXPANSIONHUNTER (test30C_S3)
+[57/8530ea] Submitted process > EXPANSIONHUNTER (test30B_S4)
+[aa/052f76] Submitted process > EXPANSIONHUNTER (test37B_S4)
+[8b/265b36] Submitted process > EXPANSIONHUNTER (test37A_S3)
+[d3/5a587d] Submitted process > EXPANSIONHUNTER (test37C_S6)
+[99/964b34] Submitted process > EXPANSIONHUNTER (test42B_S8)
+[dc/e76cba] Submitted process > EXPANSIONHUNTER (test42A_S8)
+[e0/4f0cba] Submitted process > EXPANSIONHUNTER (test42C_S3)
+[9f/c47f43] Submitted process > EXPANSIONHUNTER (test46B_S6)
+[4a/9d7cc5] Submitted process > EXPANSIONHUNTER (test46C_S3)
+[ae/70f72a] Submitted process > EXPANSIONHUNTER (test46A_S7)
+[08/93a2d7] Submitted process > EXPANSIONHUNTER (test54B_S1)
+[a9/ec18ad] Submitted process > EXPANSIONHUNTER (test54A_S6)
+[9b/38e9a6] Submitted process > EXPANSIONHUNTER (test58B_S1)
+[39/d68a7b] Submitted process > EXPANSIONHUNTER (test54C_S7)
+[aa/b12596] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test3A_S6)
+[aa/930e62] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test1A_S4)
+[d4/c5d856] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test3B_S4)
+[6d/ae6ed4] Submitted process > SAMTOOLS_INDEX_REALIGNED (test1A_S4)
+[f4/e21cd2] Submitted process > SAMTOOLS_INDEX_REALIGNED (test3A_S6)
+[b2/b60536] Submitted process > SAMTOOLS_INDEX_REALIGNED (test1B_S5)
+[87/7c3e79] Submitted process > SAMTOOLS_INDEX_REALIGNED (test3B_S4)
+[c2/5c25e2] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test1B_S5)
+[09/f21bcc] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test6B_S5)
+[5a/0608dd] Submitted process > SAMTOOLS_INDEX_REALIGNED (test3C_S7)
+[34/9843d7] Submitted process > SAMTOOLS_INDEX_REALIGNED (test6B_S5)
+[34/291fce] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test3C_S7)
+[41/a1a785] Submitted process > SAMTOOLS_INDEX_REALIGNED (test6C_S2)
+[7d/52483c] Submitted process > EXPANSIONHUNTER (test58A_S3)
+[dd/2405c7] Submitted process > EXPANSIONHUNTER (test58C_S2)
+[22/ab564e] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test6C_S2)
+[39/4fff31] Submitted process > SAMTOOLS_INDEX_REALIGNED (test6A_S1)
+[d2/9e927a] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test6A_S1)
+[55/bbd003] Submitted process > SAMTOOLS_INDEX_REALIGNED (test7C_S4)
+[d2/f784a1] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test7C_S4)
+[21/049e05] Submitted process > SAMTOOLS_INDEX_REALIGNED (test7A_S8)
+[4d/43e5d6] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test7B_S7)
+[a3/d2aa9e] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test7A_S8)
+[ec/b57454] Submitted process > SAMTOOLS_INDEX_REALIGNED (test7B_S7)
+[40/59ccc5] Submitted process > SAMTOOLS_INDEX_REALIGNED (test1C_S2)
+[79/ad5d84] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test1C_S2)
+[13/e58851] Submitted process > SAMTOOLS_INDEX_REALIGNED (test9B_S3)
+[6a/b7ee59] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test9A_S4)
+[c5/8622d1] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test9B_S3)
+[56/a1caec] Submitted process > SAMTOOLS_INDEX_REALIGNED (test9A_S4)
+[87/92de58] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test11B_S6)
+[94/c418e2] Submitted process > SAMTOOLS_INDEX_REALIGNED (test11B_S6)
+[bd/e3fbf2] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test9C_S7)
+[38/70acfa] Submitted process > SAMTOOLS_INDEX_REALIGNED (test9C_S7)
+[1b/f85ba2] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test11A_S1)
+[a3/840b82] Submitted process > SAMTOOLS_INDEX_REALIGNED (test11C_S5)
+[49/a8f170] Submitted process > SAMTOOLS_INDEX_REALIGNED (test11A_S1)
+[cc/33914a] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test11C_S5)
+[1c/8f439a] Submitted process > SAMTOOLS_INDEX_REALIGNED (test13A-RPT_S1)
+[19/f71820] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test13A-RPT_S1)
+[fa/f0b1b0] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test13C-RPT_S3)
+[ff/7edae9] Submitted process > SAMTOOLS_INDEX_REALIGNED (test13C-RPT_S3)
+[ec/555f64] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test13B_S8)
+[87/a16017] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test14A-RPT_S5)
+[bc/d3ade5] Submitted process > SAMTOOLS_INDEX_REALIGNED (test13B_S8)
+[b8/050a3c] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test14C-RPT_S6)
+[99/92c63e] Submitted process > SAMTOOLS_INDEX_REALIGNED (test14A-RPT_S5)
+[41/d356fc] Submitted process > SAMTOOLS_INDEX_REALIGNED (test14C-RPT_S6)
+[4c/492432] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test15A_S8)
+[c3/0582c7] Submitted process > SAMTOOLS_INDEX_REALIGNED (test15A_S8)
+[eb/4e3dca] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test14B-RPT_S7)
+[c1/e69e3f] Submitted process > SAMTOOLS_INDEX_REALIGNED (test14B-RPT_S7)
+[36/9c0ef8] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test15B-RPT_S4)
+[9a/17c019] Submitted process > SAMTOOLS_INDEX_REALIGNED (test15B-RPT_S4)
+[03/e2172b] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test30A_S6)
+[6f/78466e] Submitted process > SAMTOOLS_INDEX_REALIGNED (test15C-RPT_S2)
+[59/56f396] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test15C-RPT_S2)
+[8c/d3db20] Submitted process > SAMTOOLS_INDEX_REALIGNED (test30A_S6)
+[b1/909c42] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test30C_S3)
+[f1/d0e700] Submitted process > SAMTOOLS_INDEX_REALIGNED (test30C_S3)
+[b0/5d4cfb] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test30B_S4)
+[f2/211cbb] Submitted process > SAMTOOLS_INDEX_REALIGNED (test37B_S4)
+[03/6b2c3f] Submitted process > SAMTOOLS_INDEX_REALIGNED (test30B_S4)
+[64/1dddba] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test37B_S4)
+[ef/f39e29] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test37A_S3)
+[de/942d69] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test37C_S6)
+[6e/377eed] Submitted process > SAMTOOLS_INDEX_REALIGNED (test37C_S6)
+[6a/fc6944] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test42B_S8)
+[e5/6b5ea9] Submitted process > SAMTOOLS_INDEX_REALIGNED (test37A_S3)
+[88/a1f77d] Submitted process > SAMTOOLS_INDEX_REALIGNED (test42B_S8)
+[4a/7fe2c0] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test42C_S3)
+[00/cd3cb2] Submitted process > SAMTOOLS_INDEX_REALIGNED (test42C_S3)
+[65/7f9d57] Submitted process > SAMTOOLS_INDEX_REALIGNED (test42A_S8)
+[7c/22c43d] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test42A_S8)
+[56/26f359] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test46B_S6)
+[ac/dbcc53] Submitted process > SAMTOOLS_INDEX_REALIGNED (test46B_S6)
+[96/c300b9] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test46A_S7)
+[a4/161bba] Submitted process > SAMTOOLS_INDEX_REALIGNED (test46C_S3)
+[40/844259] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test46C_S3)
+[11/d6277d] Submitted process > SAMTOOLS_INDEX_REALIGNED (test46A_S7)
+[4d/eada4c] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test54B_S1)
+[a8/094cf1] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test54A_S6)
+[36/0f8abe] Submitted process > SAMTOOLS_INDEX_REALIGNED (test54A_S6)
+[11/2ea14e] Submitted process > SAMTOOLS_INDEX_REALIGNED (test54B_S1)
+[52/e947ba] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test58B_S1)
+[b0/624114] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test54C_S7)
+[69/c94897] Submitted process > SAMTOOLS_INDEX_REALIGNED (test54C_S7)
+[3e/9989d6] Submitted process > SAMTOOLS_INDEX_REALIGNED (test58B_S1)
+[19/94b8ba] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test58A_S3)
+[53/52e3bc] Submitted process > SAMTOOLS_INDEX_REALIGNED (test58C_S2)
+[77/dd441b] Submitted process > SAMTOOLS_INDEX_REALIGNED (test58A_S3)
+[ec/51ff7d] Submitted process > STRIPY_POSTPROCESS:STRIPY_ANNOTATE_VCF (test58C_S2)
+[74/3de1f1] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test1A_S4)
+[48/ad2692] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test3A_S6)
+[47/2a40de] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test3B_S4)
+[68/843b6b] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test1B_S5)
+[ee/5565c4] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test6B_S5)
+[75/674f5e] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test3C_S7)
+[22/378c2b] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test6C_S2)
+[47/7da6e6] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test6A_S1)
+[53/d85a78] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test7C_S4)
+[4d/e4469f] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test7B_S7)
+[ee/498468] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test7A_S8)
+[54/6dfb0b] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test1C_S2)
+[dc/4368e1] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test9A_S4)
+[e3/a5ea0b] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test9B_S3)
+[7d/bc23ba] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test11B_S6)
+[c9/13c4d5] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test9C_S7)
+[76/312132] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test11A_S1)
+[d9/f49210] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test11C_S5)
+[27/d76cee] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test13A-RPT_S1)
+[f8/e350f5] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test13C-RPT_S3)
+[e0/d2b0c1] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test13B_S8)
+[04/2e4a9d] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test14A-RPT_S5)
+[76/abd99e] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test14C-RPT_S6)
+[8b/bc6292] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test15A_S8)
+[00/f7c9a4] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test14B-RPT_S7)
+[30/598c70] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test15B-RPT_S4)
+[29/fb8a8f] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test30A_S6)
+[32/bb811f] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test15C-RPT_S2)
+[fd/d5ee22] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test30C_S3)
+[2f/ba9ab2] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test30B_S4)
+[77/86368f] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test37B_S4)
+[71/73d52a] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test37A_S3)
+[bc/ee3674] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test37C_S6)
+[8c/89861f] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test42B_S8)
+[1e/e8d44f] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test42C_S3)
+[18/3f78e4] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test42A_S8)
+[0d/197d33] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test46B_S6)
+[34/4922a5] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test46A_S7)
+[e2/589161] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test46C_S3)
+[b6/be4af1] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test54B_S1)
+[0d/840858] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test54A_S6)
+[4c/a97e42] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test58B_S1)
+[91/dcd869] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test54C_S7)
+[bf/82bc90] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test58A_S3)
+[04/d397b7] Submitted process > STRIPY_POSTPROCESS:STRIPY_BUILD_SAMPLE_REPORT (test58C_S2)
+[a3/3be088] Submitted process > STRIPY_POSTPROCESS:STRIPY_AGGREGATE_COHORT_REPORT (cohort_report)
+
+──────────────────────────────────────────────────────────────
+  Pipeline Status : SUCCESS ✔
+  Duration        : 24m 34s
+  Output dir      : /path/to/TEST_DVG/results_v4/repeat_analysis
+  Exit status     : 0
+──────────────────────────────────────────────────────────────
+
+WARN: Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+
+================================================================
+  STATUS   : SUCCESS ✔
+
+  Results  : /path/to/TEST_DVG/results_v4/repeat_analysis
+
+  Clean up work cache:
+    nextflow clean -f
+    rm -rf /path/to/work2
+  Finished : Sat Apr 11 02:04:27 BST 2026
+================================================================
