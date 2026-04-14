@@ -3,7 +3,7 @@
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A525.04.0-23aa62.svg)](https://www.nextflow.io/)
 [![Run with Singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
 [![SLURM](https://img.shields.io/badge/executor-SLURM-blue.svg)](https://slurm.schedmd.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 
 A production-grade, HPC-scale Nextflow DSL2 pipeline for detecting, annotating and reporting short tandem repeat (STR) expansions in whole-exome sequencing (WES) cohorts.
 
@@ -142,8 +142,6 @@ python3 scripts/generate_regions_bed.py \
     --output   /path/to/reference/repeat_regions.bed \
     --padding  1000
 
-# Copy your project HPO filter file to resources
-cp hpo_epilepsy_terms.txt /path/to/resources/hpo_epilepsy_terms.txt
 ```
 
 The `stripy_locus_reference.json` bootstrap cache will be generated automatically on the first pipeline run. It fetches metadata for all 66 loci from the STRipy `/locus` API and saves permanently to `params.stripy_locus_ref`. Subsequent runs use the cached file  delete it to force a refresh.
@@ -174,8 +172,7 @@ nextflow run main.nf \
     --outdir          /path/to/results \
     --stripy_locus_ref /path/to/stripy_locus_reference.json \
     --hpo_file        /path/to/hpo_genes_to_phenotype.txt \
-    --hpo_filter_file /path/to/hpo_epilepsy_terms.txt
-```
+ ```
 
 Resume after failure  Nextflow caches all completed tasks:
 
@@ -323,14 +320,6 @@ Each family receives one `.xlsx` workbook with five sheets:
 >
 > Example: ATXN1 in LH0014A has 35 CAG repeats (de novo, above normal max of 32). The pathogenic cutoff for SCA1 is ≥39. This warrants clinical attention but is not a confirmed pathogenic expansion.
 
-### HPO_Filtered Column
-
-The `HPO_Filtered` column applies a project-specific HPO term set to highlight diseases with phenotypic overlap with the cohort's clinical focus. For the Lighthouse epilepsy cohort, 88 curated epilepsy HPO terms are used.
-
-- A populated `HPO_Filtered` entry = disease has epilepsy phenotype overlap
-- An empty dot (`.`) = disease lacks epilepsy phenotypes in the HPO database  **not** that the locus is irrelevant
-- To use a different disease filter: `--hpo_filter_file /path/to/hpo_renal_terms.txt`
-
 ---
 
 ## REViewer  On-Demand Visualisation
@@ -371,15 +360,13 @@ Estimated runtime: 252 samples ÷ 25 concurrent × ~2h/sample ≈ 21h.
 
 ## Limitations
 
-1. **WES coverage at STR loci is low**  ~57 of 66 loci are typically no-call per sample. WES capture kits do not enrich intronic/intergenic repeat loci. WGS would recover the missing loci at higher cost.
+1. **WES coverage at STR loci is low**  ~40-50 of 65 loci are typically no-call per sample. WES capture kits do not enrich intronic/intergenic repeat loci. WGS would recover the missing loci at higher cost.
 
 2. **Repeat count ≠ pathogenicity** : A HIGH outlier or de novo flag does not diagnose disease. Repeat counts must be compared against published pathogenic thresholds and interpreted in full clinical context, accounting for penetrance and expressivity.
 
 3. **De novo requires a complete trio** : `DeNovo = Possible` (DUO) or blank (SINGLETON) should prompt parental sequencing before clinical interpretation.
 
-4. **HPO filtering is project-specific** : The default term set reflects epilepsy phenotypes. Update `--hpo_filter_file` for other clinical contexts.
-
-5. **STRipy population reference**  Z-scores compare against 1000 Genomes. Pathogenic cutoffs are from published literature and may be updated as evidence accumulates.
+4. **STRipy population reference**  Z-scores compare against 1KG Dragen dataset used by STRipy. Pathogenic cutoffs are from published literature and may be updated as evidence accumulates.
 
 6. **Nested/complex loci (AmbiguousNestedCall)**  Some loci (e.g. TBX1) have complex architecture where EH detects a variant but cannot count the pathogenic motif. These are flagged grey in the Excel report and should not be interpreted without orthogonal validation.
 
@@ -413,7 +400,7 @@ Estimated runtime: 252 samples ÷ 25 concurrent × ~2h/sample ≈ 21h.
     ├── aggregate_cohort_report.py   # Per-family Excel generator
     ├── fetch_stripy_locus_ref.py    # STRipy /locus bootstrap
     ├── generate_regions_bed.py      # Padded repeat loci BED
-    └── run_reviewer.sh              # On-demand REViewer utility
+ 
 ```
 
 ---
@@ -422,18 +409,18 @@ Estimated runtime: 252 samples ÷ 25 concurrent × ~2h/sample ≈ 21h.
 
 If you use this pipeline in your research, please cite:
 
-- **ExpansionHunter:** Dolzhenko et al. (2019) 
-- **STRipy:** Li et al. (2021)
-- **Nextflow:** Di Tommaso et al. (2017)
+- **ExpansionHunter:** Dolzhenko et al., (2019) https://doi.org/10.1093/bioinformatics/btz431
+- **STRipy:** Halman A. et al., (2022) https://doi.org/10.1002/humu.24382
+- **Nextflow:** Di Tommaso et al. (2017) https://doi.org/10.1038/nbt.3820
 
 ---
 
 ## Contact
 
 **Deepak Bharti**  
-Bioinformatics, RCSI  
+Clinical Bioinformatician, RCSI  
 deepakbharti@rcsi.ie
 
 ---
 
-*Pipeline developed for the Lighthouse Epilepsy Project, RCSI  April 2026*
+*Pipeline developed for the Epilepsy Project, RCSI  April 2026*
