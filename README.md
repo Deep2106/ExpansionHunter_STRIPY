@@ -33,7 +33,7 @@ Developed for the **RCSI epilepsy cohort** at RCSI designed to be reusable for a
 
 Standard SNV/indel variant calling pipelines do not detect short tandem repeat expansions. This pipeline fills that gap by:
 
-1. **Extracting** reads overlapping 66 STR loci from full WES BAM files (hybrid seeking mode)
+1. **Extracting** reads overlapping 65 STR loci from full WES BAM files (hybrid seeking mode)
 2. **Genotyping** repeat expansions using [ExpansionHunter v5](https://github.com/Illumina/ExpansionHunter)
 3. **Annotating** per-sample VCFs with disease metadata via the [STRipy](https://stripy.org) API
 4. **Scoring** each allele with population Z-scores, outlier flags, and allele direction
@@ -122,7 +122,7 @@ python_3.14.2.sif            # with openpyxl installed
 | File | Notes |
 |------|-------|
 | `hg38.fasta` + `.fai` | Reference genome |
-| `variant_catalog_v2_extended_offtarget_added_chr.json` | ExpansionHunter variant catalog (66 loci) |
+| `variant_catalog_v2_extended_offtarget_added_chr.json` | ExpansionHunter variant catalog (65 loci) |
 | `repeat_regions.bed` | Padded BED of repeat loci  generate once (see below) |
 | `hpo_genes_to_phenotype.txt` | [HPO](https://hpo.jax.org/data/annotations) gene-to-phenotype annotations |
 | `stripy_locus_reference.json` | STRipy /locus cache  auto-generated on first pipeline run |
@@ -144,7 +144,7 @@ python3 scripts/generate_regions_bed.py \
 
 ```
 
-The `stripy_locus_reference.json` bootstrap cache will be generated automatically on the first pipeline run. It fetches metadata for all 66 loci from the STRipy `/locus` API and saves permanently to `params.stripy_locus_ref`. Subsequent runs use the cached file  delete it to force a refresh.
+The `stripy_locus_reference.json` bootstrap cache will be generated automatically on the first pipeline run. It fetches metadata for all 65 loci from the STRipy `/locus` API and saves permanently to `params.stripy_locus_ref`. Subsequent runs use the cached file  delete it to force a refresh.
 
 ---
 
@@ -295,9 +295,9 @@ Each family receives one `.xlsx` workbook with five sheets:
 | Sheet | Contents | Start here? |
 |-------|----------|-------------|
 | **Summary** | Proband rows flagged as outliers or de novo candidates only | ★ Yes |
-| **Proband** | All 66 loci for the proband  called and no-call | For full context |
-| **Father** | All 66 loci for the father | Cross-reference |
-| **Mother** | All 66 loci for the mother | Cross-reference |
+| **Proband** | All 65 loci for the proband  called and no-call | For full context |
+| **Father** | All 65 loci for the father | Cross-reference |
+| **Mother** | All 65 loci for the mother | Cross-reference |
 | **Legend** | Colour key | Share with clinical colleagues |
 
 ### Row Colour Coding
