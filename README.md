@@ -354,7 +354,6 @@ The pipeline is configured for the RCSI HPC with a 30-CPU cap:
 | Aggregate step memory | 8 GB | openpyxl Excel generation |
 | Sort temp directory | `$TMPDIR` | Node-local SSD  avoids NFS saturation |
 
-Estimated runtime: 252 samples ÷ 25 concurrent × ~2h/sample ≈ 21h.
 
 ---
 
