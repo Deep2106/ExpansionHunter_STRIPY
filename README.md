@@ -190,9 +190,9 @@ Standard 6-column PED format:
 
 ```
 FamilyID  SampleID       FatherID       MotherID       Sex  Phenotype
-LH0001    LH0001A_S4     LH0001B_S5     LH0001C_S2     1    2
-LH0001    LH0001B_S5     0              0              1    0
-LH0001    LH0001C_S2     0              0              2    0
+ABCDE1    ABCDE1A_S4     ABCDE1B_S5     ABCDE1C_S2     1    2
+ABCDE1    ABCDE1B_S5     0              0              1    0
+ABCDE1    ABCDE1C_S2     0              0              2    0
 ```
 
 - `Sex`: 1 = male, 2 = female
@@ -399,7 +399,7 @@ The pipeline is configured for the RCSI HPC with a 30-CPU cap:
     ├── aggregate_cohort_report.py   # Per-family Excel generator
     ├── fetch_stripy_locus_ref.py    # STRipy /locus bootstrap
     ├── generate_regions_bed.py      # Padded repeat loci BED
- 
+    |__ annotate_vcf_local.py        # Annotation script 
 ```
 
 ---
