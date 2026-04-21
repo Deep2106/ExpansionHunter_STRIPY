@@ -62,7 +62,7 @@ SAMTOOLS_INDEX_REALIGNED     ← sort + index realigned BAM for REViewer
 STRIPY_FETCH_LOCUS_REF       ← bootstrap once from /locus API → JSON cache
         │
         ▼
-STRIPY_ANNOTATE_VCF          ← POST to /annotateVCF API per sample
+STRIPY_ANNOTATE_VCF          ← annotateVCF per sample (local)
         │  {sample}.Reannotated.vcf
         ▼
 STRIPY_BUILD_SAMPLE_REPORT   ← /compare API + HPO lookup + de novo logic
