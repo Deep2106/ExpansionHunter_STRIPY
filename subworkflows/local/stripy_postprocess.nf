@@ -4,8 +4,8 @@
 ========================================================================================
     Orchestrates all post-processing steps after ExpansionHunter:
       1. Fetch Stripy locus reference (once per pipeline run)
-      2. Annotate per-sample VCFs via Stripy API  (/annotateVCF)
-      3. Build per-sample TSV reports             (/compare + HPO annotation)
+      2. Annotate per-sample VCFs locally (no VCF data sent externally)
+      3. Build per-sample TSV reports    (/compare API — repeat counts only)
       4. Aggregate per-family Excel workbooks
 
     NOTE: REViewer visualisation is NOT included here.
@@ -37,9 +37,11 @@ workflow STRIPY_POSTPROCESS {
     )
     ch_versions = ch_versions.mix(STRIPY_FETCH_LOCUS_REF.out.versions)
 
-    // ── Step 2: Annotate per-sample VCFs via Stripy API ──────────────────
+    // ── Step 2: Annotate per-sample VCFs locally ─────────────────────────
+    //    Uses local stripy_locus_reference.json — no VCF data sent externally
     STRIPY_ANNOTATE_VCF (
-        ch_vcf
+        ch_vcf,
+        STRIPY_FETCH_LOCUS_REF.out.locus_ref
     )
     ch_versions = ch_versions.mix(STRIPY_ANNOTATE_VCF.out.versions.first())
 
@@ -49,15 +51,12 @@ workflow STRIPY_POSTPROCESS {
         .collect()
 
     // ── Step 4: Build per-sample TSV reports ─────────────────────────────
-    def hpo_filter = params.hpo_filter_file ?
-        file(params.hpo_filter_file, checkIfExists: true) :
-        file('NO_FILE')
+    def hpo_file = file(params.hpo_file, checkIfExists: true)
 
     STRIPY_BUILD_SAMPLE_REPORT (
         STRIPY_ANNOTATE_VCF.out.annotated_vcf,
         STRIPY_FETCH_LOCUS_REF.out.locus_ref,
-        params.hpo_file,
-        hpo_filter,
+        hpo_file,
         ped,
         ch_all_annotated_vcfs
     )
